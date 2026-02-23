@@ -6,7 +6,7 @@ import { MovieProvider } from "./contexts/MovieContext";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
-import Watchlist from "./pages/Watchlist";
+import Watchlist from "./pages/Watchlist ";
 
 export default function App() {
   const [searchResults, setSearchResults] = useState(null);

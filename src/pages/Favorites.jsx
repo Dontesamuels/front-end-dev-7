@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
+import { useMovies } from "../contexts/MovieContext";
 import MovieGrid from "../components/MovieGrid";
 
-
 export default function Favorites() {
-const [favorites, setFavorites] = useState([]);
+  const { favorites } = useMovies();
 
+  if (!favorites || favorites.length === 0) {
+    return <h2 style={{ textAlign: "center" }}>No favorites yet.</h2>;
+  }
 
-useEffect(() => {
-const stored = JSON.parse(localStorage.getItem("favorites")) || [];
-setFavorites(stored);
-}, []);
-
-
-return (
-<div>
-<h2>Your Favorites</h2>
-<MovieGrid movies={favorites} />
-</div>
-);
+  return (
+    <div>
+      <h2>Your Favorites</h2>
+      <MovieGrid movies={favorites} />
+    </div>
+  );
 }
